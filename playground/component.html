@@ -11,7 +11,12 @@
 <body>
     <div id="app">
         <app-header></app-header>
-        <app-content></app-content>
+        <app-footer></app-footer>
+    </div>
+
+    <div id="app2">
+        <app-header></app-header>
+        <app-footer></app-footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -21,11 +26,22 @@
             template: '<h1>Header</h1>'
         });
 
-        Vue.component('app-content', {
-            template: '<div>content</div>'
-        });
-        var vm = new Vue({
+        new Vue({
             el: '#app',
+            components: {
+                'app-footer': {
+                    template: '<footer>footer</footer>'
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app2',
+            components: {
+                'app-footer': {
+                    template: '<footer>footer</footer>'
+                }
+            }
         })
     </script>
 </body>
